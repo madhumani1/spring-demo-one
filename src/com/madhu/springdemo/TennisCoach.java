@@ -5,14 +5,14 @@ package com.madhu.springdemo;
  * @author Madhukar
  *
  */
-public class FootballCoach implements Coach {
+public class TennisCoach implements Coach {
 
 	private FortuneService fortuneService;
 	private String email, team;
 	
 	// create a no-arg constructor
-	public FootballCoach() {
-		System.out.println("FootballCoach: inside no-arg constructor");
+	public TennisCoach() {
+		System.out.println("TennisCoach: inside no-arg constructor");
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class FootballCoach implements Coach {
 	 * @param fortuneService the fortuneService to set
 	 */
 	public void setFortuneService(FortuneService fortuneService) {
-		System.out.println("FootballCoach: inside setter methor - setFortuneService");
+		System.out.println("TennisCoach: inside setter methor - setFortuneService");
 		this.fortuneService = fortuneService;
 	}
 	
@@ -35,7 +35,7 @@ public class FootballCoach implements Coach {
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
-		System.out.println("Football Coach: inside setter method - setEmail");
+		System.out.println("Tennis Coach: inside setter method - setEmail");
 		this.email = email;
 	}
 
@@ -43,7 +43,7 @@ public class FootballCoach implements Coach {
 	 * @return the team
 	 */
 	public String getTeam() {
-		System.out.println("Football Coach: inside setter method - setTeam");
+		System.out.println("Tennis Coach: inside setter method - setTeam");
 		return team;
 	}
 
@@ -56,7 +56,7 @@ public class FootballCoach implements Coach {
 
 	@Override
 	public String getDailyWorkout() {
-	return "Do a dribbling practise for 15 mins";
+	return "Do a backhand drop for 15 mins";
 }
 
 	@Override

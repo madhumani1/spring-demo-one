@@ -1,0 +1,13 @@
+root=true
+
+# dependencies
+/lib
+/bin
+*.class
+*.classpath
+
+
+indent_style = tab
+indent_size = 4
+continuation_indent_size = 8
+
