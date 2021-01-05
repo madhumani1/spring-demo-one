@@ -1,28 +1,30 @@
+/**
+ * 
+ */
 package com.madhu.springdemo;
 
 /**
- * POJO
  * @author Madhukar
  *
  */
-// Add the @Component Annotation to your Java classes
-/* @Component("thatSillyCoach") */
-public class TennisCoach implements Coach {
+public class CricketCoach implements Coach {
 
 	private FortuneService fortuneService;
 	private String email, team;
 	
-	// create a no-arg constructor
-	public TennisCoach() {
-		System.out.println("TennisCoach: inside no-arg constructor");
+	/**
+	 * create a no-arg constructor
+	 */
+	public CricketCoach() {
+		System.out.println("CricketCoach: inside no-arg constructor");
 	}
-
+	
 	/**
 	 * our setter method will be called by Spring when they inject dependency
 	 * @param fortuneService the fortuneService to set
 	 */
 	public void setFortuneService(FortuneService fortuneService) {
-		System.out.println("TennisCoach: inside setter methor - setFortuneService");
+		System.out.println("Cricket: inside setter methor - setFortuneService");
 		this.fortuneService = fortuneService;
 	}
 	
@@ -37,7 +39,7 @@ public class TennisCoach implements Coach {
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
-		System.out.println("Tennis Coach: inside setter method - setEmail");
+		System.out.println("Cricket Coach: inside setter method - setEmail");
 		this.email = email;
 	}
 
@@ -45,7 +47,7 @@ public class TennisCoach implements Coach {
 	 * @return the team
 	 */
 	public String getTeam() {
-		System.out.println("Tennis Coach: inside setter method - setTeam");
+		System.out.println("Cricket Coach: inside setter method - setTeam");
 		return team;
 	}
 
@@ -55,15 +57,15 @@ public class TennisCoach implements Coach {
 	public void setTeam(String team) {
 		this.team = team;
 	}
-
+	
 	@Override
 	public String getDailyWorkout() {
-	return "Do a backhand drop for 15 mins";
-}
+		return "Do a Fast bowling for 30 mins";
+	}
 
 	@Override
 	public String getDailyFortune() {
-		// use my fortuneSerivce to get a fortune 
 		return fortuneService.getFortune();
 	}
+
 }

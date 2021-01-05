@@ -55,6 +55,15 @@ public class SpringHelloApp {
 		System.out.println("Tennis: "+theCoach2.getEmail());
 		System.out.println("Tennis: "+theCoach2.getTeam());
 		
+		//System.out.println("Random: "+(new RandomFortuneService()).getFortune());
+		CricketCoach theCoach3;
+		theCoach3= context.getBean("myCricketCoach",CricketCoach.class);
+		System.out.println("Cricket: "+theCoach3.getDailyWorkout());
+		System.out.println("Cricket: "+theCoach3.getDailyFortune());
+		System.out.println("Cricket: "+theCoach3.getEmail());
+		System.out.println("Cricket: "+theCoach3.getTeam());
+		
+		
 		// close the context
 		context.close();
 	}

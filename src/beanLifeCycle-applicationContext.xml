@@ -17,34 +17,29 @@
 	<bean id="randomFortuneService" class="com.madhu.springdemo.RandomFortuneService" />
 	
     <!-- Define your beans here -->
-	<bean id="myCoach" class="com.madhu.springdemo.BaseballCoach" />
+	<bean id="myCoach" class="com.madhu.springdemo.BaseballCoach" 
+		init-method="doMyStartupStuff"
+		destroy-method="doMyCleanupStuff" />
 	<!-- Comment below to add Dependency Injection in Setter Injection way-->
 	<!-- <bean id="myFootballCoach" class="com.madhu.springdemo.FootballCoach" /> -->
-	<bean id="myFootballCoach" class="com.madhu.springdemo.FootballCoach">
-		<!-- setup setter injection - this will call setFortuneService -->
+	<!-- <bean id="myFootballCoach" class="com.madhu.springdemo.FootballCoach">
+		setup setter injection - this will call setFortuneService
 		<property name="fortuneService" ref="myFortuneService" />
 		<property name="email" value="madhumani1@gmail.com" />
 		<property name="team" value="Real Madrid" />
-	</bean>
+	</bean> -->
 	<!-- Comment below to add Dependency Injection -->
 	<!-- <bean id="myKabaddiCoach" class="com.madhu.springdemo.KabaddiCoach" /> -->
 	<bean id="myKabaddiCoach" class="com.madhu.springdemo.KabaddiCoach">
 		<constructor-arg ref="myFortuneService" />
 	</bean>
 	
-	<context:property-placeholder location="classpath:application.properties" />
-	<bean id="myTennisCoach" class="com.madhu.springdemo.TennisCoach">
-		<!-- setup setter injection - this will call setFortuneService -->
-		<property name="fortuneService" ref="myFortuneService" />
-		<property name="email" value="${foo.email}" />
-		<property name="team" value="${foo.team}" />
-	</bean>
+	<!-- Add bean scope to SwimmingCoach implementation -->
+	<bean id="mySwimmingCoach" class="com.madhu.springdemo.SwimmingCoach" scope="prototype" 
+		init-method="doMyStartupStuff"
+		destroy-method="destroy"/>
 	
-	<!-- Challenge task -->
-	<bean id="myCricketCoach" class="com.madhu.springdemo.CricketCoach">
-		<!-- setup setter injection - this will call setFortuneService -->
-		<property name="fortuneService" ref="randomFortuneService" />
-		<property name="email" value="atharvi.madhukar@gmail.com" />
-		<property name="team" value="Bayern Munich" />
-	</bean>
+	<!-- Bean custom processor to handle calling destroy methods on prototype scoped beans -->
+    <bean id="customProcessor"
+    		class="com.madhu.springdemo.MyCustomBeanProcessor" />
 </beans>
